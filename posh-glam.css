@@ -1,0 +1,26 @@
+body{
+  margin: 0px;
+  background-color: #000;
+}
+
+#photocube {
+  image:url(flowers.jpg);
+  rx:30deg;
+}
+
+@-webkit-keyframes kfRotateY {
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+
+  to {
+    -webkit-transform: rotateY(360deg);
+  }
+}
+.animRotateY
+{
+  -webkit-animation-duration: 10s;
+  -webkit-animation-name: kfRotateY;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function:linear;
+}

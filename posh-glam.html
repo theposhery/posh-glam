@@ -1,0 +1,139 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!-- Libs -->
+<script src="libs/jquery-1.9.1.min.js"></script>
+<script src="libs/jquery.parsecss.js"></script>
+<script src="libs/vizi.min.js"></script>
+
+<!-- Uncompressed, non production Sources -->
+<!--<script src="src/glam.js"></script>
+<script src="src/animation.js"></script>
+<script src="src/arc.js"></script>
+<script src="src/background.js"></script>
+<script src="src/camera.js"></script>
+<script src="src/circle.js"></script>
+<script src="src/classList.js"></script>
+<script src="src/cone.js"></script>
+<script src="src/controller.js"></script>
+<script src="src/cube.js"></script>
+<script src="src/cylinder.js"></script>
+<script src="src/document.js"></script>
+<script src="src/effect.js"></script>
+<script src="src/group.js"></script>
+<script src="src/import.js"></script>
+<script src="src/input.js"></script>
+<script src="src/light.js"></script>
+<script src="src/line.js"></script>
+<script src="src/material.js"></script>
+<script src="src/mesh.js"></script>
+<script src="src/node.js"></script>
+<script src="src/parser.js"></script>
+<script src="src/particles.js"></script>
+<script src="src/rect.js"></script>
+<script src="src/renderer.js"></script>
+<script src="src/sphere.js"></script>
+<script src="src/style.js"></script>
+<script src="src/text.js"></script>
+<script src="src/transform.js"></script>
+<script src="src/transition.js"></script>
+<script src="src/types.js"></script>
+<script src="src/viewer.js"></script>
+<script src="src/visual.js"></script>-->
+
+<script src="libs/glamlib.min.js" ></script>
+
+
+<!--
+Element providing solution to no problem in particular.
+
+##### Example
+
+    <posh-glam></posh-glam>
+
+@element posh-glam
+@blurb Element providing solution to no problem in particular.
+@status alpha
+@homepage http://polymerlabs.github.io/posh-glam
+-->
+<polymer-element name="posh-glam" attributes="notitle author">
+
+  <template>
+
+    <link rel="stylesheet" href="posh-glam.css" />
+
+    <h1>Hello from posh-glam</h1>
+    <content>
+      <div id="container" style="width:600px; height:600px;">
+        <glam>
+          <scene>
+            <cube id="photocube" class="animRotateY"></cube>
+          </scene>
+        </glam>
+      </div>
+
+    </content>
+
+  </template>
+
+
+  <script>
+
+    Polymer({
+      /**
+       * The `author` attribute sets an initial author
+       *
+       * @attribute author
+       * @type string
+       * @default 'Dimitri Glazkov'
+       */
+      author: 'Dimitri Glazkov',
+
+      /**
+       * `fancy` is a property that does something fancy.
+       *
+       * @property fancy
+       * @type bool
+       * @default false
+       */
+      fancy: false,
+
+      ready: function() {
+        glam.ready(this.shadowRoot);
+      },
+
+      /**
+       * The `sayHello` method will return a greeting.
+       *
+       * @method sayHello
+       * @param {String} greeting Pass in a specific greeting.
+       * @return {String} Returns a string greeting.
+       */
+      sayHello: function(greeting) {
+        var response = greeting || 'Hello World!';
+        return 'posh-glam says, ' + response;
+      },
+
+      /**
+       * The `posh-glam-lasers-success` event is fired whenever we
+       * call fireLasers.
+       *
+       * @event posh-glam-lasers-success
+       * @param {Object} detail
+       *   @param {string} detail.sound An amazing sound.
+       */
+
+      /**
+       * The `fireLasers` method will fire the lasers. At least
+       * it will dispatch an event that claims lasers were fired :)
+       *
+       * @method fireLasers
+       */
+      fireLasers: function() {
+        this.fire('posh-glam-lasers-success', { sound: 'Pew pew pew!' });
+      }
+
+    });
+
+  </script>
+
+</polymer-element>
